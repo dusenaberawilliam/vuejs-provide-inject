@@ -1,19 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>This is AppComponent</h1>
+    <p>Name: {{ name }}</p>
+    <p>______________________</p>
+    <ComponentA />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import ComponentA from "./components/ComponentA";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    ComponentA,
+  },
+  data() {
+    return {
+      name: "William",
+    };
+  },
+  provide() {
+    return {
+      username: this.name,
+    };
+  },
+};
 </script>
 
 <style>
